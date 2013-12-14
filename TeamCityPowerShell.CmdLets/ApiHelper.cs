@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -38,6 +39,7 @@ namespace TeamCityPowerShell.CmdLets
         public string SelectedProject { get; set; }
         public string SelectedBuildConfiguration { get { return SelectedProject + "_" + Environment; } }
         public string DeployPath { get;set; }
+        public HashSet<string> Projects = new HashSet<string>(); 
 
         public Uri GetSaveArtifactUri(string buildConfiguration, string tag)
         {

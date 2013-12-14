@@ -11,7 +11,28 @@ namespace TeamCityPowerShell.CmdLets
 
         protected override void ProcessRecord()
         {
-            ApiHelper.Instance.SelectedProject = Name;
+            if (ApiHelper.Instance.Projects.Contains(Name))
+            {
+                ApiHelper.Instance.SelectedProject = Name;
+                WriteObject(string.Format("{0} is now selected", Name));
+            }
+            else
+            {
+                var gpc = new GetProjectsCommand();
+                foreach (var test in gpc.Invoke())
+                {
+                    
+                }
+                if (ApiHelper.Instance.Projects.Contains(Name))
+                {
+                    ApiHelper.Instance.SelectedProject = Name;
+                    WriteObject(string.Format("{0} is now selected", Name));
+                }
+                else
+                {
+                    WriteObject(string.Format("{0} does not exist", Name));
+                }
+            }
         }
     }
 }

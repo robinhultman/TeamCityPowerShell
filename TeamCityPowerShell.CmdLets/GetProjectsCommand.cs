@@ -1,9 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Management.Automation;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Xml;
 
 namespace TeamCityPowerShell.CmdLets
@@ -29,9 +25,10 @@ namespace TeamCityPowerShell.CmdLets
                 return;
             }
 
-            foreach (XmlNode node in xmlApps)
+            foreach (var name in from XmlNode node in xmlApps where node.Attributes != null select node.Attributes["name"].InnerText)
             {
-                WriteObject(node.Attributes["name"].InnerText);
+                ApiHelper.Instance.Projects.Add(name);
+                WriteObject(name);
             }
         }
     }
