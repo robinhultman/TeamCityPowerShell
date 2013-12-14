@@ -10,18 +10,23 @@ namespace TeamCityPowerShell.CmdLets
     public class SelectBuildServerCommand : Cmdlet
     {
         [Parameter(Mandatory = true)]
-        public string ApiPath { get; set; }
+        [Alias("AU")]
+        public string ApiUri { get; set; }
         
         [Parameter(Mandatory = true)]
+        [Alias("User", "U")]
         public string ApiUserName { get; set; }
 
         [Parameter(Mandatory = true)]
+        [Alias("Pwd", "P")]
         public string ApiPassword { get; set; }
 
         [Parameter(Mandatory = true)]
+        [Alias("DP", "Path")]
         public string LocalDeployPath { get; set; }
 
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = false)]
+        [Alias("E")]
         public string Environment { get; set; }
 
         protected override void ProcessRecord()
@@ -33,11 +38,9 @@ namespace TeamCityPowerShell.CmdLets
               Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", ApiUserName, ApiPassword))));
 
             ApiHelper.Instance.HttpClient = httpClient;
-            ApiHelper.Instance.ApiUri = new Uri(ApiPath);
+            ApiHelper.Instance.ApiUri = new Uri(ApiUri);
             ApiHelper.Instance.DeployPath = LocalDeployPath;
             ApiHelper.Instance.Environment = Environment;
-
-
         }
     }
 }
