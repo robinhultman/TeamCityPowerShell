@@ -6,11 +6,12 @@ namespace TeamCityPowerShell.CmdLets
     public class SelectProjectCommand : Cmdlet
     {
         [Parameter(Mandatory = true)]
-        public string Project { get; set; }
+        [Alias("N")]
+        public string Name { get; set; }
 
         protected override void ProcessRecord()
         {
-            ApiHelper.Instance.SelectedProject = Project;
+            ApiHelper.Instance.SelectedProject = Name;
         }
     }
 }
