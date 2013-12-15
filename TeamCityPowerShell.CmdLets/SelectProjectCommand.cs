@@ -5,8 +5,7 @@ namespace TeamCityPowerShell.CmdLets
     [Cmdlet(VerbsCommon.Select, "Project")]
     public class SelectProjectCommand : Cmdlet
     {
-        [Parameter(Mandatory = true)]
-        [Alias("N")]
+        [Parameter(Mandatory = true, Position = 0)]
         public string Name { get; set; }
 
         protected override void ProcessRecord()
