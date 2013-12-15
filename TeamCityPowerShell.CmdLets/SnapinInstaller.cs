@@ -37,7 +37,7 @@ namespace TeamCityPowerShell.CmdLets
                             "TeamCityPowerShell.CmdLets.dll-help.xml"),
                         new CmdletConfigurationEntry("Get-Projects", typeof (GetProjectsCommand),
                             "TeamCityPowerShell.CmdLets.dll-help.xml"),
-                        new CmdletConfigurationEntry("Get-Tags", typeof (GetTagsCommand),
+                        new CmdletConfigurationEntry("Get-BuildTags", typeof (GetTagsCommand),
                             "TeamCityPowerShell.CmdLets.dll-help.xml"),
                         new CmdletConfigurationEntry("Save-BuildArtifacts", typeof (SaveBuildArtifactsCommand),
                             "TeamCityPowerShell.CmdLets.dll-help.xml"),
