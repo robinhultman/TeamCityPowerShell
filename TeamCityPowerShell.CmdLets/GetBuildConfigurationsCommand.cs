@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace TeamCityPowerShell.CmdLets
 {
-    [Cmdlet(VerbsCommon.Get, "BuildTypes")]
+    [Cmdlet(VerbsCommon.Get, "BuildConfigurations")]
     public class GetBuildConfigurationsCommand : Cmdlet
     {
         [Parameter(Mandatory = false)]
@@ -37,7 +37,10 @@ namespace TeamCityPowerShell.CmdLets
 
             foreach (XmlNode node in xmlApps)
             {
-                WriteObject(node.Attributes["id"].Value);
+                if (node.Attributes != null)
+                {
+                    WriteObject(node.Attributes["id"].Value);
+                }
             }
         }
     }
