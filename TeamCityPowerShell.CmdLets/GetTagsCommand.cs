@@ -8,17 +8,12 @@ namespace TeamCityPowerShell.CmdLets
     [Cmdlet(VerbsCommon.Get, "BuildTags")]
     public class GetTagsCommand : Cmdlet
     {
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = true)]
         public string BuildConfiguration { get; set; }
 
         protected override void ProcessRecord()
         {
-            if (string.IsNullOrEmpty(BuildConfiguration))
-            {
-                BuildConfiguration = ApiHelper.Instance.SelectedBuildConfiguration;
-            }
-
-            var response = ApiHelper.Instance.HttpClient.GetAsync(new Uri(ApiHelper.Instance.BuildTypesUri, BuildConfiguration+ "/builds")).Result;
+          var response = ApiHelper.Instance.HttpClient.GetAsync(new Uri(ApiHelper.Instance.BuildTypesUri, BuildConfiguration+ "/builds")).Result;
             response.EnsureSuccessStatusCode();
 
             var xmlResponse = new XmlDocument();

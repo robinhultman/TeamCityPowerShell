@@ -24,10 +24,7 @@ namespace TeamCityPowerShell.CmdLets
         [Parameter(Mandatory = true)]
         [Alias("DP", "Path")]
         public string LocalDeployPath { get; set; }
-
-        [Parameter(Mandatory = false)]
-        [Alias("E")]
-        public string Environment { get; set; }
+        
 
         protected override void ProcessRecord()
         {
@@ -40,7 +37,6 @@ namespace TeamCityPowerShell.CmdLets
             ApiHelper.Instance.HttpClient = httpClient;
             ApiHelper.Instance.ApiUri = new Uri(ApiUri);
             ApiHelper.Instance.DeployPath = LocalDeployPath;
-            ApiHelper.Instance.Environment = Environment;
         }
     }
 }
