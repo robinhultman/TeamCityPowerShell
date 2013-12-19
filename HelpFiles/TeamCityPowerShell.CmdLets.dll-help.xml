@@ -136,17 +136,17 @@ Project1_Production</command:commandText>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
 				<maml:name>BuildConfiguration</maml:name>
 				<maml:description>
-					<maml:para>The build configuration to get tags from. Uses &lt;ProjectName&gt;_&lt;Environment&gt; by default.</maml:para>
+					<maml:para>The build configuration to get tags from.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			</command:parameter>
 		</command:syntaxItem>
 	</command:syntax>
 	<command:parameters>
-		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+		<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="named">
 			<maml:name>BuildConfiguration</maml:name>
 			<maml:description>
-				<maml:para>The build configuration to get tags from. Uses &lt;ProjectName&gt;_&lt;Environment&gt; by default.</maml:para>
+				<maml:para>The build configuration to get tags from.</maml:para>
 			</maml:description>
 			<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			<dev:type>
@@ -196,7 +196,7 @@ Project1_Production</command:commandText>
 			</maml:introduction>
 			<dev:code>PS C:\&gt; Get-BuildTags</dev:code>
 			<dev:remarks>
-				<maml:para>Displays build tags from the active project and the default build configuration &lt;Project&gt;_&lt;Environment&gt;</maml:para>
+				<maml:para>Displays build tags from the active project and the default build configuration</maml:para>
 			</dev:remarks>
 			<command:commandLines>
 				<command:commandLine>
@@ -323,10 +323,10 @@ Project2</command:commandText>
 	<command:syntax>
 		<command:syntaxItem>
 			<maml:name>Save-BuildArtifacts</maml:name>
-			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+			<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="named">
 				<maml:name>BuildConfiguration</maml:name>
 				<maml:description>
-					<maml:para>Overrides the default build configuration naming.</maml:para>
+					<maml:para>The build configuration to download from.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			</command:parameter>
@@ -340,10 +340,10 @@ Project2</command:commandText>
 		</command:syntaxItem>
 	</command:syntax>
 	<command:parameters>
-		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+		<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="named">
 			<maml:name>BuildConfiguration</maml:name>
 			<maml:description>
-				<maml:para>Overrides the default build configuration naming.</maml:para>
+				<maml:para>The build configuration to download from.</maml:para>
 			</maml:description>
 			<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			<dev:type>
@@ -481,13 +481,6 @@ Project2</command:commandText>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			</command:parameter>
-			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
-				<maml:name>Environment</maml:name>
-				<maml:description>
-					<maml:para>The environment on wich the commandlet is run.</maml:para>
-				</maml:description>
-				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-			</command:parameter>
 		</command:syntaxItem>
 	</command:syntax>
 	<command:parameters>
@@ -531,18 +524,6 @@ Project2</command:commandText>
 			<maml:name>LocalDeployPath</maml:name>
 			<maml:description>
 				<maml:para>The base path to download build artifacts to.</maml:para>
-			</maml:description>
-			<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-			<dev:type>
-				<maml:name>String</maml:name>
-				<maml:uri/>
-			</dev:type>
-			<dev:defaultValue></dev:defaultValue>
-		</command:parameter>
-		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
-			<maml:name>Environment</maml:name>
-			<maml:description>
-				<maml:para>The environment on wich the commandlet is run.</maml:para>
 			</maml:description>
 			<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
 			<dev:type>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
 
@@ -8,7 +7,7 @@ namespace TeamCityPowerShell.CmdLets
     [Cmdlet(VerbsData.Save, "BuildArtifacts")]
     public class SaveBuildArtifactsCommand : Cmdlet
     {
-        [Parameter(Mandatory = false)]
+        [Parameter(Mandatory = true)]
         public string BuildConfiguration
         {
             get;
@@ -25,11 +24,7 @@ namespace TeamCityPowerShell.CmdLets
 
         protected override void ProcessRecord()
         {
-            if (string.IsNullOrEmpty(BuildConfiguration))
-            {
-                BuildConfiguration = ApiHelper.Instance.SelectedBuildConfiguration;
-            }
-
+           
             var response = ApiHelper.Instance.HttpClient.GetAsync(ApiHelper.Instance.GetSaveArtifactUri(BuildConfiguration, Tag)).Result;
 
             response.EnsureSuccessStatusCode();

@@ -35,9 +35,8 @@ namespace TeamCityPowerShell.CmdLets
         public Uri ProjectsUri { get { return new Uri(ApiUri, "httpAuth/app/rest/projects/"); } }
         public Uri BuildTypesUri { get { return new Uri(ApiUri, "httpAuth/app/rest/buildTypes/"); } }
         public Uri ArtifactUri { get { return new Uri(ApiUri, "repository/downloadAll/"); } }
-        public string Environment { get; set; }
         public string SelectedProject { get; set; }
-        public string SelectedBuildConfiguration { get { return SelectedProject + "_" + Environment; } }
+        
         public string DeployPath { get;set; }
         public HashSet<string> Projects = new HashSet<string>(); 
 
