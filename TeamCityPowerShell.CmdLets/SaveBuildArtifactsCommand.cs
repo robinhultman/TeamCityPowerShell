@@ -21,6 +21,13 @@ namespace TeamCityPowerShell.CmdLets
             set;
         }
 
+        [Parameter(Mandatory = false)]
+        public bool Unzip
+        {
+            get;
+            set;
+        }
+
 
         protected override void ProcessRecord()
         {
@@ -38,7 +45,7 @@ namespace TeamCityPowerShell.CmdLets
             }
 
 
-            ApiHelper.Instance.SaveArtifacts(response.Content.ReadAsByteArrayAsync().Result,BuildConfiguration, Tag, fileName);
+            ApiHelper.Instance.SaveArtifacts(response.Content.ReadAsByteArrayAsync().Result, BuildConfiguration, Tag, fileName, Unzip);
 
             WriteObject("Saved");
         }
